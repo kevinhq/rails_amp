@@ -3,7 +3,7 @@ module RailsAmp
     extend ActiveSupport::Concern
 
     included do
-      before_action do
+      before_filter do
         RailsAmp.format = request[:format]
         if RailsAmp.amp_renderable?(controller_name, action_name)  # default_format is :amp
           override_actions_with_rails_amp
